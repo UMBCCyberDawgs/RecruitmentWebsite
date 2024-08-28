@@ -67,7 +67,8 @@ body, html {
 }
 
 .image-section img {
-    width: 100%;
+    width: 60%;
+	height: 60%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
