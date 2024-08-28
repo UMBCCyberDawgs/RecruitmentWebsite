@@ -1,0 +1,13 @@
+name: CyberDawgs Recruitment
+services:
+    cyberdawgs-recruitment:
+        volumes:
+            - $(pwd)/website-files:/usr/share/nginx/html
+        ports:
+            - 80:80
+        logging:
+            options:
+                max-size: 1g
+        restart: always
+        container_name: cyberdawgs-recruitment
+        image: cyberdawgs-recruitment:latest
