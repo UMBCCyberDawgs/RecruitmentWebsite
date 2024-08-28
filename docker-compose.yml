@@ -2,7 +2,7 @@ name: CyberDawgs Recruitment
 services:
     cyberdawgs-recruitment:
         volumes:
-            - $(pwd)/website-files:/usr/share/nginx/html
+            - $(pwd)/assets:/usr/share/nginx/html
         ports:
             - 80:80
         logging:
