@@ -8,5 +8,5 @@ docker build -t cyberdawgs-recruitment:latest .
 docker run -d -v $(pwd)/assets:/usr/share/nginx/html -p 80:80 --name cyberdawgs-recruitment cyberdawgs-recruitment:latest
 
 # Stop and Remove Website
-docker stop cyberdawgs-recruitment /
+docker stop cyberdawgs-recruitment \
 docker rm -f cyberdawgs-recruitment
