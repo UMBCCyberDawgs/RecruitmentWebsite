@@ -1,28 +1,52 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: #f4f4f4;
+    font-family: 'Courier New', Courier, monospace;
+    color: #FFCC00;
+    background: #000000;
+    overflow-y: hidden;
+    position: relative; /* Ensure stacking context for child elements */
+    z-index: -2; /* Ensure it's above lights */
 }
 
 .hero {
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
-    color: white;
+    background: #1A1A1A;
+    color: #FFCC00;
     text-align: center;
-    padding: 100px 20px;
-    position: relative;
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    margin: 20px auto; /* Center the hero section */
+    width: fit-content; /* Adjust width to content */
+    max-width: 90%; /* Limit maximum width */
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.5);
+    position: relative; /* Ensure stacking context for child elements */
+    z-index: 1; /* Ensure it's above lights */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    gap: 20px;
+}
+
+.hero-image {
+    max-width: 150px; /* Adjust size as needed */
+    height: auto;
+}
+
+.hero-text {
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 3em;
+    font-size: 4em; /* Adjusted font size */
     margin: 0;
-    animation: fadeInDown 1s ease-in-out;
 }
 
 .hero p {
-    font-size: 1.5em;
-    margin: 20px 0 0;
-    animation: fadeInUp 1s ease-in-out;
+    font-size: 2em; /* Adjusted font size */
+    margin: 10px 0 0;
 }
 
 .content {
@@ -30,15 +54,16 @@ body, html {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    position: relative; /* Ensure stacking context for child elements */
+    z-index: 1; /* Ensure it's above lights */
 }
 
 .image-section {
-    background: white;
+    background: #111;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.5);
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
 }
 
 .image-section img {
@@ -46,72 +71,91 @@ body, html {
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
-    animation: fadeIn 1s ease-in-out;
+    border: 2px solid #FFCC00;
 }
 
 footer {
-    background: #333;
-    color: white;
+    background: #1A1A1A;
+    color: #FFCC00;
     text-align: center;
     padding: 10px 0;
+    position: relative; /* Ensure stacking context for child elements */
+    z-index: 1; /* Ensure it's above lights */
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Floating Light Effects */
+.light {
+    position: absolute;
+    width: 0px;
+    opacity: .75;
+    background-color: white;
+    box-shadow: #e9f1f1 0px 0px 20px 2px;
+    opacity: 0;
+    top: 100vh;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    z-index: -1; /* Ensure lights are behind the content */
 }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.x1 {
+    animation: floatUp 4s infinite linear;
+    transform: scale(1.0);
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.x2 {
+    animation: floatUp 7s infinite linear;
+    transform: scale(1.6);
+    left: 15%;
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-20px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(-10px);
-    }
+.x3 {
+    animation: floatUp 2.5s infinite linear;
+    transform: scale(.5);
+    left: -15%;
 }
 
-@keyframes scrollArrow {
-    0% {
-        opacity: 0;
-        top: 10px;
-    }
-    50% {
-        opacity: 1;
-        top: 25px;
-    }
-    100% {
-        opacity: 0;
-        top: 10px;
-    }
+.x4 {
+    animation: floatUp 4.5s infinite linear;
+    transform: scale(1.2);
+    left: -34%;
+}
+
+.x5 {
+    animation: floatUp 8s infinite linear;
+    transform: scale(2.2);
+    left: -57%;
+}
+
+.x6 {
+    animation: floatUp 3s infinite linear;
+    transform: scale(.8);
+    left: -81%;
+}
+
+.x7 {
+    animation: floatUp 5.3s infinite linear;
+    transform: scale(3.2);
+    left: 37%;
+}
+
+.x8 {
+    animation: floatUp 4.7s infinite linear;
+    transform: scale(1.7);
+    left: 62%;
+}
+
+.x9 {
+    animation: floatUp 4.1s infinite linear;
+    transform: scale(0.9);
+    left: 85%;
+}
+
+@keyframes floatUp {
+    0% { top: 100vh; opacity: 0; }
+    25% { opacity: 1; }
+    50% { top: 0vh; opacity: .8; }
+    75% { opacity: 1; }
+    100% { top: -100vh; opacity: 0; }
 }
