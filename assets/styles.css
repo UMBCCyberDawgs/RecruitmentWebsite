@@ -40,7 +40,7 @@ body, html {
 }
 
 .hero h1 {
-    font-size: 4em; /* Adjusted font size */
+    font-size: 6em; /* Adjusted font size */
     margin: 0;
 }
 
@@ -54,6 +54,7 @@ body, html {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    overflow: hidden;
     position: relative; /* Ensure stacking context for child elements */
     z-index: 1; /* Ensure it's above lights */
 }
@@ -64,15 +65,61 @@ body, html {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(255, 204, 0, 0.5);
     text-align: center;
+    max-width: 100%; /* Ensure it doesn't exceed parent container width */
+    display: flex;
+    flex-direction: column; /* Align elements vertically */
+    align-items: center; /* Center elements horizontally  */ 
 }
 
 .image-section img {
     width: 60%;
-	height: 60%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
     border: 2px solid #FFCC00;
+}
+
+.image-section h1 {
+    font-size: 4em; /* Adjusted font size */
+    margin: 0;
+    text-decoration: underline;
+}
+
+.image-section h2 {
+    font-size: 3em; /* Adjusted font size */
+    margin: 0;
+}
+
+.image-section p {
+    font-size: 2em; /* Adjusted font size */
+    margin: 10px 0 0;
+}
+
+.image-slider-container {
+    width: 50%; /* Adjust width as needed */
+    height: 50%; /* Adjust height as needed */
+}
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0; /* Remove margin to fill the entire space */
+}
+  
+.image-slider img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    opacity: 0; /* Initially hide images */
+    transition: opacity 1s ease-in-out; /* Smooth transition effect for opacity changes */
+}
+  
+.image-slider img:first-child {
+    opacity: 1; /* Make the first image visible initially */
 }
 
 footer {
@@ -100,59 +147,6 @@ footer {
     z-index: -1; /* Ensure lights are behind the content */
 }
 
-.x1 {
-    animation: floatUp 4s infinite linear;
-    transform: scale(1.0);
-}
-
-.x2 {
-    animation: floatUp 7s infinite linear;
-    transform: scale(1.6);
-    left: 15%;
-}
-
-.x3 {
-    animation: floatUp 2.5s infinite linear;
-    transform: scale(.5);
-    left: -15%;
-}
-
-.x4 {
-    animation: floatUp 4.5s infinite linear;
-    transform: scale(1.2);
-    left: -34%;
-}
-
-.x5 {
-    animation: floatUp 8s infinite linear;
-    transform: scale(2.2);
-    left: -57%;
-}
-
-.x6 {
-    animation: floatUp 3s infinite linear;
-    transform: scale(.8);
-    left: -81%;
-}
-
-.x7 {
-    animation: floatUp 5.3s infinite linear;
-    transform: scale(3.2);
-    left: 37%;
-}
-
-.x8 {
-    animation: floatUp 4.7s infinite linear;
-    transform: scale(1.7);
-    left: 62%;
-}
-
-.x9 {
-    animation: floatUp 4.1s infinite linear;
-    transform: scale(0.9);
-    left: 85%;
-}
-
 @keyframes floatUp {
     0% { top: 100vh; opacity: 0; }
     25% { opacity: 1; }
@@ -160,3 +154,13 @@ footer {
     75% { opacity: 1; }
     100% { top: -100vh; opacity: 0; }
 }
+
+.x1 { animation: floatUp 4s infinite linear; transform: scale(1.0); }
+.x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
+.x3 { animation: floatUp 2.5s infinite linear; transform: scale(.5); left: -15%; }
+.x4 { animation: floatUp 4.5s infinite linear; transform: scale(1.2); left: -34%; }
+.x5 { animation: floatUp 8s infinite linear; transform: scale(2.2); left: -57%; }
+.x6 { animation: floatUp 3s infinite linear; transform: scale(.8); left: -81%; }
+.x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37%; }
+.x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62%; }
+.x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85%; }
